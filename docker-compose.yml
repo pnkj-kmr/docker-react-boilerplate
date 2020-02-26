@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    container_name: web
+    restart: on-failure
+    volumes:
+      - .:/app
+    environment:
+      - ENDPOINT=http://127.0.0.1:9000
+      - NODE_ENV=development
+      - PORT=8080
